@@ -3,13 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
-const port = 3000;
-
 // DOTENV
 dotenv.config({ path: './config.env' });
 
 // MONGODB CONFIG
 const DB = process.env.DATABASE;
+const PORT = process.env.PORT;
 
 mongoose.connect(DB).then(() => {
     console.log('Connected to MongoDB Database');
@@ -35,6 +34,6 @@ app.get('/contact', (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Responding on port ${port}`)
+app.listen(PORT, () => {
+    console.log(`Responding on port ${PORT}`)
 })
